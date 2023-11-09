@@ -35,6 +35,11 @@ Route::get('/contact', function () {
     return view('contact');
 
 })->name('contact');
+Route::get('/aboutus', function () {
+    $users = User::all();
+    return view('aboutus');
+
+})->name('aboutus');
 
 
 

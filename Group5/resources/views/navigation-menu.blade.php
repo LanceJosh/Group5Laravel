@@ -21,6 +21,9 @@
                     <x-nav-link href="{{route('contact')}}" :active="request()->routeIs('dashboard')">
                         Contact
                     </x-nav-link>
+                    <x-nav-link href="{{route('aboutus')}}" :active="request()->routeIs('dashboard')">
+                        About Us
+                    </x-nav-link>
                 </div>
             </div>
 
