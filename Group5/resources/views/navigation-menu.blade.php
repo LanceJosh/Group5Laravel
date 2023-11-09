@@ -18,6 +18,9 @@
                     <x-nav-link href="{{route('AllCat')}}" :active="request()->routeIs('dashboard')">
                         Job List
                     </x-nav-link>
+                    <x-nav-link href="{{route('contact')}}" :active="request()->routeIs('dashboard')">
+                        Contact
+                    </x-nav-link>
                 </div>
             </div>
 

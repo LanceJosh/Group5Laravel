@@ -30,6 +30,13 @@ Route::middleware([
 
     })->name('dashboard');
 });
+Route::get('/contact', function () {
+    $users = User::all();
+    return view('contact');
+
+})->name('contact');
+
+
 
 
 Route::get('/all/category', [CategoryController::class,'index'])->name('AllCat');
