@@ -24,8 +24,8 @@
         }
 
         .logo {
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
         }
 
         .company-name {
@@ -34,6 +34,7 @@
         }
 
         .content {
+            width: 190px;
             margin: 20px;
             text-align: center;
         }
@@ -872,13 +873,14 @@
         @endif
         <div class="header">
         <img src="/images/logo.png" alt="Logo" class="logo">
-        <h1 class="company-name">HiredLab&Co.</h1>
+        
     </div>
     <div class="content">
-        <p>Providing </p>
+        <h1>Your Path to Career Success Starts at Hire Lab&Co. </h1>
     </div>
 
     </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,0L48,48C96,96,192,192,288,197.3C384,203,480,117,576,117.3C672,117,768,203,864,213.3C960,224,1056,160,1152,160C1248,160,1344,224,1392,256L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
 </body>
 
 </html>
