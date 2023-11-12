@@ -109,8 +109,8 @@
 					<div class="nav-mini-wrapper">
 						<ul class="nav-mini sign-in">
 						
-							<li><a href="Login.php">login</a></li>
-							<li><a href= "Register.php">register</a></li>		
+							<li><a href="/login-view">login</a></li>
+							<li><a href= "/register-view">register</a></li>		
 
 						</ul>
 					</div>
