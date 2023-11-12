@@ -16,7 +16,7 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::middleware([
@@ -42,7 +42,13 @@ Route::get('/aboutus', function () {
 })->name('aboutus');
 
 
+Route::get('/login-view', function(){
+    return view('auth.login');
+});
 
+Route::get('/register-view', function(){
+    return view('auth.register');
+});
 
 Route::get('/all/category', [CategoryController::class,'index'])->name('AllCat');
 Route::post('/all/category', [CategoryController::class, 'store'])->name('categories.store');
