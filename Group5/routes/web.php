@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 
@@ -49,6 +50,10 @@ Route::get('/login-view', function(){
 Route::get('/register-view', function(){
     return view('auth.register');
 });
+
+Route::get('/jobs', [JobController::class, 'index'])->name('job.index');
+Route::get('/jobs/create', [JobController::class, 'create'])->name('job.create');
+Route::post('/store', [JobController::class, 'store'])->name('job.store');
 
 Route::get('/all/category', [CategoryController::class,'index'])->name('AllCat');
 Route::post('/all/category', [CategoryController::class, 'store'])->name('categories.store');
