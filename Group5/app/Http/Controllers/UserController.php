@@ -8,6 +8,13 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        $users = User::all();
+        return view('dashboard', compact('users'));
+    }
+    
+
     public function edit($id)
 {
     $user = User::find($id);
@@ -19,15 +26,23 @@ public function update(Request $request, $id)
     $user->name = $request->input('name');
     $user->email = $request->input('email');
     $user->save();
-    return redirect()->route('users.show', $user->id);
+    $users = User::all();
+        return view('dashboard', compact('users'));
 }
 public function show($id)
 {
-    // Logic to retrieve the user with the given ID
     $user = User::find($id);
 
-    // Redirect to the dashboard route
-    return redirect()->route('dashboard');
+    $users = User::all();
+    return redirect()->route('dashboard', compact('users'));
+}
+public function destroy($id)
+{
+    
+    $user = User::findOrFail($id);
+    $user->delete();
+    $users = User::all();
+    return redirect()->route('dashboard', compact('users'))->with('success', 'User deleted successfully');
 }
 
 }

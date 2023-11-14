@@ -33,6 +33,11 @@
             <td>{{$user->created_at}}</td>
             <td>
               <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Edit</a>
+              <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
             </td>
           </tr>
           @endforeach
