@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Models\User;
 
 /*
@@ -49,6 +50,14 @@ Route::get('/login-view', function(){
 Route::get('/register-view', function(){
     return view('auth.register');
 });
+
+//users CRUD
+Route::get('/users/{id}/edit',[UserController::class ,'edit'])->name('users.edit');
+Route::put('/users/{id}', [UserController::class ,'update'])->name('users.update');
+Route::get('/users/{id}', [UserController::class ,'show'])->name('users.show');
+
+
+//
 
 Route::get('/jobs', [JobController::class, 'index'])->name('job.index');
 Route::get('/jobs/create', [JobController::class, 'create'])->name('job.create');

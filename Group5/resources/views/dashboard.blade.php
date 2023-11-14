@@ -1,38 +1,43 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Admin Dashboard') }}
-        </h2>
-    </x-slot>
+  <x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+      {{ __('Admin Dashboard') }}
+    </h2>
+  </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Role</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Created At</th>
-    </tr>
-  </thead>
-  <tbody>
-    @php
-        $i=1;
-    @endphp
+  <div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Role</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Actions</th>
 
-    @foreach ($users as $user)
-    <tr>
-      <th scope="row">{{$i++}}</th>
-      <td>{{$user->role}}</td>
-      <td>{{$user->name}}</td>
-      <td>{{$user->email}}</td>
-      <td>{{$user->created_at}}</td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
-        </div>
+          </tr>
+        </thead>
+        <tbody>
+          @php
+          $i=1;
+          @endphp
+
+          @foreach ($users as $user)
+          <tr>
+            <th scope="row">{{$i++}}</th>
+            <td>{{$user->role}}</td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>
+            <td>{{$user->created_at}}</td>
+            <td>
+              <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Edit</a>
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
     </div>
+  </div>
 </x-app-layout>
