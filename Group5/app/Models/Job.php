@@ -13,6 +13,12 @@ class Job extends Model
         'job_title',
         'description',
         'salary',
-        'is_fulltime'
+        'is_fulltime',
+        'employer_id'
     ];
+
+    public function employer()
+    {
+        return $this->belongsTo(User::class, 'employer_id');
+    }
 }
