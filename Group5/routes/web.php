@@ -53,6 +53,10 @@ Route::get('/register-view', function(){
 Route::get('/jobs', [JobController::class, 'index'])->name('job.index');
 Route::get('/jobs/create', [JobController::class, 'create'])->name('job.create');
 Route::post('/store', [JobController::class, 'store'])->name('job.store');
+Route::get('/job/{job}/edit', [JobController::class, 'edit'])->name('job.edit');
+Route::put('/job/{job}/update', [JobController::class, 'update'])->name('job.update');
+Route::delete('/job/{job}/delete', [JobController::class, 'delete'])->name('job.delete');
+
 
 Route::get('/all/category', [CategoryController::class,'index'])->name('AllCat');
 Route::post('/all/category', [CategoryController::class, 'store'])->name('categories.store');
