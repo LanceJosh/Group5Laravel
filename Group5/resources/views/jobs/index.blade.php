@@ -14,6 +14,7 @@
         <h6>{{session('success')}}</h6>
         @endif
     </div>
+    <a href="{{route('job.create')}}"><button onclick="{{route('job.create')}}">Post a Job</button></a>
     <div>
         @foreach($jobs as $job)
         <p>
