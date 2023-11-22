@@ -43,7 +43,7 @@ class JobController extends Controller
     public function delete(Job $job){
         $job->delete();
 
-        return redirect(route('job.index'))->with('success', $job['job_title'] . ' deleted successfully');
+        return redirect(route('job.index'))->with('success', $job['job_title'] . ' deleted successfully.');
     }
 
     public function store(Request $request)
@@ -63,6 +63,6 @@ class JobController extends Controller
 
         $new_job = Job::create($data);
 
-        return redirect(route('job.index'));
+        return redirect(route('job.index'))->with('success', $data['job_title'] . ' posted successfully.');
     }
 }
