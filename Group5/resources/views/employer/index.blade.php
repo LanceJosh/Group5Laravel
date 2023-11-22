@@ -33,5 +33,4 @@
         @endforeach
     </div>
 </body>
-
 </html>

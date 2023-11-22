@@ -15,16 +15,16 @@ class JobController extends Controller
     {
         $user = Auth::user();
         $jobs = $user->jobs;
-        return view('jobs.index', compact('jobs'));
+        return view('employer.index', compact('jobs'));
     }
 
     public function create()
     {
-        return view('jobs.create-job');
+        return view('employer.create-job');
     }
 
     public function edit(Job $job){
-        return view('jobs.edit',['job' => $job]);
+        return view('employer.edit',['job' => $job]);
     }
 
     public function update(Job $job, Request $request){
