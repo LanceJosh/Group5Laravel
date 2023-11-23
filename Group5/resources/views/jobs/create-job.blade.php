@@ -50,11 +50,10 @@ div.content {
 div.box{
     background-color: white;
     padding-bottom: 20px;
-    margin-top: 50px;
     width: 1000px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     position: absolute;
-    top: 200px;
+    margin-top: 50px;
     border-radius: 10px;
 }
 div.job-container{
@@ -131,7 +130,7 @@ div.job-input{
                         </div>
                         <div class="job-input">
                             <label>Description: </label><br>
-                            <textarea name="description" class="w3-input" style="width: 250px;"></textarea>
+                            <input type="text" name="description" class="w3-input" style="width: 250px;"></textarea>
                         </div>
                         <div class="job-input">
                             <label>Salary: $</label><br>
