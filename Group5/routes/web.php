@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ApplicationController;
 use App\Models\User;
 
 /*
@@ -27,7 +30,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         $users = User::all();
         return view('dashboard', compact('users'));
-
     })->name('dashboard');
 });
 Route::get('/contact', function () {
@@ -49,6 +51,25 @@ Route::get('/login-view', function(){
 Route::get('/register-view', function(){
     return view('auth.register');
 });
+
+//users CRUD
+Route::get('/users/{id}/edit',[UserController::class ,'edit'])->name('users.edit');
+Route::put('/users/{id}', [UserController::class ,'update'])->name('users.update');
+Route::get('/users/{id}', [UserController::class ,'show'])->name('users.show');
+Route::delete('/users/{id}', [UserController::class ,'destroy'])->name('users.destroy');
+
+
+//Employer
+Route::get('/jobs', [JobController::class, 'index'])->name('job.index');
+Route::get('/jobs/create', [JobController::class, 'create'])->name('job.create');
+Route::post('/store', [JobController::class, 'store'])->name('job.store');
+Route::get('/job/{job}/edit', [JobController::class, 'edit'])->name('job.edit');
+Route::put('/job/{job}/update', [JobController::class, 'update'])->name('job.update');
+Route::delete('/job/{job}/delete', [JobController::class, 'delete'])->name('job.delete');
+
+//applicant
+Route::get('/applicant/jobs', [JobController::class, 'showAllJobsToApplicant'])->name('applicant.index');
+Route::get('/applicant/{job}/apply', [ApplicationController::class, 'apply'])->name('applicant.apply');
 
 Route::get('/all/category', [CategoryController::class,'index'])->name('AllCat');
 Route::post('/all/category', [CategoryController::class, 'store'])->name('categories.store');
