@@ -65,4 +65,10 @@ class JobController extends Controller
 
         return redirect(route('job.index'))->with('success', $data['job_title'] . ' posted successfully.');
     }
+
+    public function showAllJobsToApplicant(){
+        $jobs = Job::all();
+
+        return view('applicant.alljobs',compact('jobs'));
+    }
 }
