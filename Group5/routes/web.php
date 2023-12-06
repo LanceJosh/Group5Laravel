@@ -72,6 +72,7 @@ Route::get('/applicant/jobs', [JobController::class, 'showAllJobsToApplicant'])-
 Route::get('/applicant/{job}/apply', [ApplicationController::class, 'apply'])->name('applicant.apply');
 Route::post('/applicant/submit-application', [ApplicationController::class, 'submit_application'])->name('applicant.submit');
 Route::get('/applicant/my-applications', [ApplicationController::class, 'my_applications'])->name('applicant.my-applications');
+Route::delete('/applicant/{application}/cancel', [ApplicationController::class, 'cancel'])->name('applicant.cancel');
 
 Route::get('/all/category', [CategoryController::class,'index'])->name('AllCat');
 Route::post('/all/category', [CategoryController::class, 'store'])->name('categories.store');

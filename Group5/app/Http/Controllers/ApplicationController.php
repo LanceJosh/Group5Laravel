@@ -10,6 +10,7 @@ use App\Models\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Log;
+use Illuminate\Support\Facades\File;
 
 class ApplicationController extends Controller
 {
@@ -64,15 +65,26 @@ class ApplicationController extends Controller
                 'job_id' => $data['job_id'],
                 'status' => $data['status'],
                 'resume' => $data['resume'],
-                'created_at' => now(), // You can use now() for the current timestamp
+                'created_at' => Carbon::now(), // You can use now() for the current timestamp
             ]);
 
-            return Redirect()->back()->with('success', 'Application successful');
+            return Redirect('/applicant/my-applications')->with('success', 'Application successful');
         } catch (\Exception $e) {
             // Log the exception for debugging
 
             // Return a response indicating the error, or redirect back with an error message
             return Redirect()->back()->with('error', 'An error occurred while submitting the application.');
         }
+    }
+
+    public function cancel(Application $application)
+    {
+        $resumePath = public_path($application->resume);
+        $application->delete();
+        if (File::exists($resumePath)) {
+            File::delete($resumePath);
+        }
+
+        return Redirect()->back()->with('success', 'Application to ' . $application->job->job_title . ' has been cancelled.');
     }
 }
