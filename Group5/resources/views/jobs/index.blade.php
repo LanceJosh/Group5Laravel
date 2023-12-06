@@ -17,11 +17,11 @@
     <body>
         <div class="container">
             <h1 class="mt-5 mb-3">My Jobs</h1>
+            @if(session()->has('success'))
             <div class="alert alert-success" role="alert">
-                @if(session()->has('success'))
                 {{session('success')}}
-                @endif
             </div>
+            @endif
             <a href="{{route('job.create')}}" class="btn btn-primary mb-3">Post a Job</a>
             <div>
                 @foreach($jobs as $job)

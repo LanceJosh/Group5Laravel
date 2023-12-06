@@ -70,6 +70,8 @@ Route::delete('/job/{job}/delete', [JobController::class, 'delete'])->name('job.
 //applicant
 Route::get('/applicant/jobs', [JobController::class, 'showAllJobsToApplicant'])->name('applicant.index');
 Route::get('/applicant/{job}/apply', [ApplicationController::class, 'apply'])->name('applicant.apply');
+Route::post('/applicant/submit-application', [ApplicationController::class, 'submit_application'])->name('applicant.submit');
+Route::get('/applicant/my-applications', [ApplicationController::class, 'my_applications'])->name('applicant.my-applications');
 
 Route::get('/all/category', [CategoryController::class,'index'])->name('AllCat');
 Route::post('/all/category', [CategoryController::class, 'store'])->name('categories.store');

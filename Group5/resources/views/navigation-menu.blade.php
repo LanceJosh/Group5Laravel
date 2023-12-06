@@ -32,6 +32,11 @@
                         {{ __('Job Openings') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('applicant.my-applications') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('My Applications') }}
+                    </x-nav-link>
+                </div>
                 @endif
                 @endauth
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
