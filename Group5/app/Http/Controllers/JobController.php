@@ -49,6 +49,12 @@ class JobController extends Controller
         return redirect(route('job.index'))->with('success', $job['job_title'] . ' deleted successfully.');
     }
 
+    public function show_applicants(Job $job){
+        $applications = $job->applications;
+
+        return view('employer.applicants', compact('applications', 'job'));
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([

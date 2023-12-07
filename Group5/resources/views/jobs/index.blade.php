@@ -27,7 +27,7 @@
                 @foreach($jobs as $job)
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $job->job_title }}</h5>
+                        <a href="{{route('job.applicants', ['job' => $job])}}" class="card-title">{{ $job->job_title }}</a>
                         <p class="card-text">
                             <strong>Description:</strong> {{ $job->description }} <br>
                             <strong>Salary:</strong> ${{ $job->salary }} <br>
