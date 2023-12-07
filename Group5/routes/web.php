@@ -66,6 +66,7 @@ Route::post('/store', [JobController::class, 'store'])->name('job.store');
 Route::get('/job/{job}/edit', [JobController::class, 'edit'])->name('job.edit');
 Route::put('/job/{job}/update', [JobController::class, 'update'])->name('job.update');
 Route::delete('/job/{job}/delete', [JobController::class, 'delete'])->name('job.delete');
+Route::get('/job/{job}/applicants', [JobController::class, 'show_applicants'])->name('job.applicants');
 
 //applicant
 Route::get('/applicant/jobs', [JobController::class, 'showAllJobsToApplicant'])->name('applicant.index');
