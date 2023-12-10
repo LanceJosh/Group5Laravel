@@ -18,7 +18,6 @@
                 <select id="role" class="block mt-1 w-full" name="role" required autofocus>
                     <option value="">{{ __('Select Role') }}</option>
                     <option value="admin">{{ __('Admin') }}</option>
-                    <option value="user">{{ __('User') }}</option>
                     <option value="employer">{{ __('Employer') }}</option>
                     <option value="applicant">{{ __('Applicant') }}</option>
                 </select>

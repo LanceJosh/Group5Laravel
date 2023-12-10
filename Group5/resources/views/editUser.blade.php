@@ -14,7 +14,6 @@
         <select id="role" class="form-control" style="border-radius: 5px;" name="role" required autofocus>
             <option value="">{{ $user->role }}</option>
             <option value="admin">{{ __('Admin') }}</option>
-            <option value="user">{{ __('User') }}</option>
             <option value="employer">{{ __('Employer') }}</option>
             <option value="applicant">{{ __('Applicant') }}</option>
         </select>
