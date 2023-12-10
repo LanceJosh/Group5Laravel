@@ -23,6 +23,7 @@
             </div>
             @endif
             <div>
+                @if($jobs->count() > 0)
                 @foreach($jobs as $job)
                 <div class="card mb-3">
                     <div class="card-body">
@@ -33,10 +34,19 @@
                             <strong>Full Time:</strong> {{ $job->is_fulltime ? 'Yes' : 'No' }} <br>
                             <strong>Employer:</strong> {{ $job->employer->name }}
                         </p>
-                        <a href="{{route('applicant.apply', ['job' => $job])}}" class="btn btn-primary">Apply now</a>
+                        <a href="{{ route('applicant.apply', ['job' => $job]) }}" class="btn btn-primary">Apply now</a>
                     </div>
                 </div>
                 @endforeach
+                @else
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">No Job Openings</h5>
+                        <p class="card-text">There are currently no job openings available. Please check back later.</p>
+                    </div>
+                </div>
+                @endif
+
             </div>
         </div>
     </body>

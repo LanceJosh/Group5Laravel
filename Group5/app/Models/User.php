@@ -35,6 +35,11 @@ class User extends Authenticatable
         return $this->hasMany(Job::class, 'employer_id');
     }
 
+    public function my_applications()
+    {
+        return $this->hasMany(Application::class, 'applicant_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

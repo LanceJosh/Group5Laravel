@@ -68,12 +68,18 @@ Route::get('/jobs', [JobController::class, 'index'])->name('job.index')->middlew
 Route::get('/jobs/create', [JobController::class, 'create'])->name('job.create')->middleware('role:employer');
 Route::post('/store', [JobController::class, 'store'])->name('job.store')->middleware('role:employer');
 Route::get('/job/{job}/edit', [JobController::class, 'edit'])->name('job.edit');
-Route::put('/job/{job}/update', [JobController::class, 'update'])->name('job.update')->middleware('role:employer');
-Route::delete('/job/{job}/delete', [JobController::class, 'delete'])->name('job.delete')->middleware('role:employer');
+
+Route::put('/job/{job}/update', [JobController::class, 'update'])->name('job.update');
+Route::delete('/job/{job}/delete', [JobController::class, 'delete'])->name('job.delete');
+Route::get('/job/{job}/applicants', [JobController::class, 'show_applicants'])->name('job.applicants');
 
 //applicant
-Route::get('/applicant/jobs', [JobController::class, 'showAllJobsToApplicant'])->name('applicant.index')->middleware('role:applicant');
-Route::get('/applicant/{job}/apply', [ApplicationController::class, 'apply'])->name('applicant.apply')->middleware('role:applicant');
+Route::get('/applicant/jobs', [JobController::class, 'showAllJobsToApplicant'])->name('applicant.index');
+Route::get('/applicant/{job}/apply', [ApplicationController::class, 'apply'])->name('applicant.apply');
+Route::post('/applicant/submit-application', [ApplicationController::class, 'submit_application'])->name('applicant.submit');
+Route::get('/applicant/my-applications', [ApplicationController::class, 'my_applications'])->name('applicant.my-applications');
+Route::delete('/applicant/{application}/cancel', [ApplicationController::class, 'cancel'])->name('applicant.cancel');
+
 
 Route::get('/all/category', [CategoryController::class,'index'])->name('AllCat')->middleware('role:admin');
 Route::post('/all/category', [CategoryController::class, 'store'])->name('categories.store')->middleware('role:admin');

@@ -23,11 +23,13 @@ class JobController extends Controller
         return view('jobs.create-job');
     }
 
-    public function edit(Job $job){
-        return view('jobs.edit',['job' => $job]);
+    public function edit(Job $job)
+    {
+        return view('jobs.edit', ['job' => $job]);
     }
 
-    public function update(Job $job, Request $request){
+    public function update(Job $job, Request $request)
+    {
         $data = $request->validate([
             'job_title' => 'required',
             'description' => 'required',
@@ -40,10 +42,17 @@ class JobController extends Controller
         return redirect(route('job.index'))->with('success', $data['job_title'] . ' Updated Successfully.');
     }
 
-    public function delete(Job $job){
+    public function delete(Job $job)
+    {
         $job->delete();
 
         return redirect(route('job.index'))->with('success', $job['job_title'] . ' deleted successfully.');
+    }
+
+    public function show_applicants(Job $job){
+        $applications = $job->applications;
+
+        return view('employer.applicants', compact('applications', 'job'));
     }
 
     public function store(Request $request)
@@ -66,9 +75,14 @@ class JobController extends Controller
         return redirect(route('job.index'))->with('success', $data['job_title'] . ' posted successfully.');
     }
 
-    public function showAllJobsToApplicant(){
-        $jobs = Job::all();
+    public function showAllJobsToApplicant()
+    {
+        $applicant = Auth::user();
 
-        return view('applicant.alljobs',compact('jobs'));
+        $jobs = Job::whereDoesntHave('applications', function ($query) use ($applicant) {
+            $query->where('applicant_id', $applicant->id);
+        })->get();
+
+        return view('applicant.alljobs', compact('jobs'));
     }
 }
