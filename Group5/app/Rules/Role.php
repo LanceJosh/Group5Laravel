@@ -16,7 +16,7 @@ class Role implements Rule
     public function passes($attribute, $value)
     {
        
-        return in_array($value, ['admin', 'user','employer','applicant']);
+        return in_array($value, ['admin','employer','applicant']);
     }
 
     /**
