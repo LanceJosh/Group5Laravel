@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class = "body">
 <x-guest-layout>
-    <x-authentication-card style="background-color: blue; background-size: cover; background-position: center;">
+    <x-authentication-card style="background-color: background-image: url(images/loginBG.png); background-size: cover; background-position: center;">
         <x-slot name="logo">
         <img src="/images/logo.png" alt="Logo" class="logo" width = "100" height = "100">
         </x-slot>
@@ -93,7 +93,7 @@
 @import url(Raleway.css);
 
 
-.body {
+x-authentication-card {
    background-image: url('{{ asset("images/loginBG.png") }}');
    background-attachment: fixed;
    background-size: cover;
@@ -229,7 +229,7 @@ i {
     
 }
 
-#sign{
+x-button{
     color: dimgray;
     text-decoration: none;
     text-align: center;
@@ -237,7 +237,7 @@ i {
     text-decoration: underline;
 }
 
-#sign:hover{
+x-button:hover{
     color:#004d99;
     cursor: pointer;
 }
