@@ -16,14 +16,17 @@ class CheckRole
      * @param  string  $role
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, $role)
-    {
-        if (! Auth::user() || ! Auth::user()->hasRole($role)) {
-            // Redirect the user to a different page or show an error message
-            return redirect('home');
-        }
+    public function handle($request, Closure $next, $role)
+{
+   $roles = explode('|', $role);
+   if (!Auth::user() || !in_array(Auth::user()->role, $roles)) {
 
-        return $next($request);
-    }
+    //return redirect('/dashboard');
+       //abort(403, 'Unauthorized action.');
+   }
+   return $next($request);
+}
+
+  
     
 }

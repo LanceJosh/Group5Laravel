@@ -22,16 +22,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified',
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         $users = User::all();
-//         return view('dashboard', compact('users'));
-//     })->name('dashboard');
-// });
+
 Route::get('/contact', function () {
     $users = User::all();
     return view('contact');
@@ -53,15 +44,23 @@ Route::get('/register-view', function(){
 });
 
 //Admin CRUD
-Route::get('/dashboard', function () {
-    $users = User::all();
-    return view('dashboard', compact('users'));
-})->name('dashboard')->middleware('role:admin');
-Route::get('/users/{id}/edit',[UserController::class ,'edit'])->name('users.edit')->middleware('role:admin');
-Route::put('/users/{id}', [UserController::class ,'update'])->name('users.update')->middleware('role:admin');
-Route::get('/users/{id}', [UserController::class ,'show'])->name('users.show')->middleware('role:admin');
-Route::delete('/users/{id}', [UserController::class ,'destroy'])->name('users.destroy')->middleware('role:admin');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'role:admin'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        $users = User::all();
+        return view('dashboard', compact('users'));
+    })->name('dashboard');
+    
+Route::get('/users/{id}/edit',[UserController::class ,'edit'])->name('users.edit');
+Route::put('/users/{id}', [UserController::class ,'update'])->name('users.update');
+Route::get('/users/{id}', [UserController::class ,'show'])->name('users.show');
+Route::delete('/users/{id}', [UserController::class ,'destroy'])->name('users.destroy');
 
+});
 
 //Employer
 Route::get('/jobs', [JobController::class, 'index'])->name('job.index')->middleware('role:employer');
