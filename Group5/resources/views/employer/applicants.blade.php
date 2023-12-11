@@ -52,7 +52,22 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{$application->applicant->name}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap"><a href="{{ url($application->resume) }}" target="_blank">{{$resume_filename}}</a></td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    This is for the action buttons
+                                    @if($application->status === "pending")
+                                    <div class="flex">
+                                        <form method="POST" action="{{ route('application.accept', ['application' => $application]) }}">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="submit" class="btn btn-success mr-2" value="Accept">
+                                        </form>
+                                        <form method="POST" action="{{ route('application.reject', ['application' => $application]) }}">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="submit" class="btn btn-danger mr-2" value="Reject">
+                                        </form>
+                                    </div>
+                                    @else
+                                    <p>{{$application->status === "accepted" ? "Contact the applicant for the job interview. Good luck!" : "Application rejected. Be patient and you'll find the right candidate."}}</p>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
