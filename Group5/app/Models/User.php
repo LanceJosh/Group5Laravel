@@ -75,4 +75,19 @@ class User extends Authenticatable
     {
         return $this->role === $role;
     }
+
+    public function redirectTo()
+    {
+   $role = Auth::user()->role;
+
+   switch ($role) {
+       case 'admin':
+           return 'dashboard';
+           break;
+       default:
+           return 'aboutus';
+           break;
+   }
+}
+
 }
