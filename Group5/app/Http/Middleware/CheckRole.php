@@ -19,16 +19,10 @@ class CheckRole
     public function handle(Request $request, Closure $next, $role)
     {
         if (! Auth::user() || ! Auth::user()->hasRole($role)) {
-            if ($role == 'applicant') {
-                return redirect('/alljobs');
-            } else if($role == 'employer'){
-                return redirect('/applicants');
-            }else{
-                return redirect('/dashboard');
-            }
-        }
+            
 
         return $next($request);
     }
     
+}
 }

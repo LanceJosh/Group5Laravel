@@ -22,6 +22,17 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'role:admin'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        $users = User::all();
+        return view('dashboard', compact('users'));
+    })->name('dashboard');
+});
 
 Route::get('/contact', function () {
     $users = User::all();
