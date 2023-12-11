@@ -29,9 +29,9 @@
 	<link rel="stylesheet" href="icons/flaticon-ventures/flaticon-ventures.css">
 <link href="css/Login.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class = "body">
-<x-guest-layout>
-    <x-authentication-card style="background-color: background-image: url(images/loginBG.png); background-size: cover; background-position: center;">
+<div class="body">
+<x-guest-layout class="mh-4">
+    <x-authentication-card style="background-image: url(images/loginBG.png); background-size: cover; background-position: center;">
         <x-slot name="logo">
         <img src="/images/logo.png" alt="Logo" class="logo" width = "100" height = "100">
         </x-slot>
@@ -78,26 +78,28 @@
 
  
            <br><br>     
-           <center><div class="mt-4 mx-auto text-center"> <!-- Add mx-auto and text-center for horizontal and text centering -->
-        <x-button>
-            {{ __('Log in') }}
-        </x-button></center>
+           <div class="mt-4 mx-auto text-center"> <!-- Add mx-auto and text-center for horizontal and text centering -->
+       
+           
+    <x-button class="ml-4">
+        {{ __('Log in') }}
+    </x-button>
+    <br><br>
+    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="/register-view">
+                {{ __('Do not have an account yet? Click Here.') }}
+            </a>
+ 
     </div>
         </form>
     </x-authentication-card>
 </x-guest-layout>
 </div>
 <style>
-@import url(Montserrat.css);
-@import url(OpenSans.css);
-@import url(Raleway.css);
 
-
-x-authentication-card {
-   background-image: url('{{ asset("images/loginBG.png") }}');
-   background-attachment: fixed;
-   background-size: cover;
-   font-family:  sans-serif;
+.mh-4{
+    background-color: black; 
+    background-size: cover; 
+    background-position: center;
 }
 
 .form{
@@ -207,7 +209,7 @@ i {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     background-color: #001a33;
-    width: 200px;
+    width: 130px;
     height: 35px;
     border-radius: 20px;
     color:aliceblue;

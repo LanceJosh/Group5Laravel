@@ -43,38 +43,41 @@
             <br>
            <center> <h2 id = "mainLabel"> Register </h2> </center>
             <br>
-            <div class="flex items-center">
+            <div class="mt-4 flex items-center">
               <i class="fa fa-user icon"></i>
-                <x-label for="name" value="{{ __('Name') }}" /></div>
+                <x-label for="name" value="{{ __('Name') }}" class="ml-2"/></div>
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <br>
            
-            <div class="flex items-center">
+            <div class="mt-4 flex items-center">
               <i class="fa fa-users icon"></i>
-                <x-label for="role" value="{{ __('Role') }}" /></div>
+                <x-label for="role" value="{{ __('Role') }}" class="ml-2"/></div>
                 <select id="role" class="block mt-1 w-full" name="role" required autofocus>
                     <option value="">{{ __('Select Role') }}</option>
                     <option value="admin">{{ __('Admin') }}</option>
                     <option value="employer">{{ __('Employer') }}</option>
                     <option value="applicant">{{ __('Applicant') }}</option>
                 </select>
-            <br>
+        
 
 
-            <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
+            <div class="mt-4 flex items-center">
+              <i class="fa fa-envelope icon"></i>
+                <x-label for="email" value="{{ __('Email') }}" class="ml-2"/></div>
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            </div>
+          
 
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
+                <div class="mt-4 flex items-center">
+              <i class="fa fa-lock icon"></i>
+                <x-label for="password" value="{{ __('Password') }}" class="ml-2"/></div>
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
+           
 
-            <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <div class="mt-4 flex items-center">
+                 <i class="fa fa-check icon"></i>
+                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" class="ml-2"/></div>
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
+            
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
             <div class="mt-4">
@@ -92,16 +95,19 @@
                 </x-label>
             </div>
             @endif
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
+<br>
+            <center><div class="last">
+                
 
                 <x-button class="ml-4">
                     {{ __('Register') }}
                 </x-button>
-            </div>
+                <br><br>
+               
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                    {{ __('Already have an account? Click Here') }}
+                </a>
+            </div></center>
         </form>
     </x-authentication-card>
 </x-guest-layout>
@@ -127,4 +133,146 @@ i {
     display: flex;
     margin-left: 70px;
 }
+.form{
+align-content: center;
+width: 450px;
+height: 500px;
+background-color: ghostwhite;
+align-content: center;
+margin-top: 70px;
+}
+
+.container{
+    width: 400px;
+    height: 400px;
+    background-color: ghostwhite;
+    align-content: center;
+    
+}
+
+.container:hover{
+    transform: scale(1.1);
+}
+
+#mainLabel {
+    font-size: 30px;
+    color: #004d99;
+    letter-spacing: 2px;
+    line-height: 0.2em;
+    font-weight: bolder;
+    font-style: sans-serif;
+
+}
+
+#unameLabel {
+    font-size: 15px;
+    color: #001a33;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 30px;
+}
+
+#email #password{
+    justify-content: center;
+    width: 400px;
+    height: 35px;
+    color: darkgrey;
+    background-color: ghostwhite;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    border-bottom: 1px solid #d1d1e0;
+   
+   
+}
+
+#email:hover{
+    border-bottom: 1px solid #004d99;
+    cursor: pointer;
+}
+
+#password:hover{
+    border-bottom: 1px solid #004d99;
+    cursor: pointer;
+}
+
+i {
+    color: #001a33;
+    height: 20px;
+}
+
+.flexElement{
+    display: flex;
+    margin-left: 70px;
+}
+
+#forgotPass {
+    color: #1a8cff;
+    text-decoration: none;
+    text-align: right;
+    font-size: 12px;
+    margin-left: 100px;
+  
+    
+}
+
+#forgotPass:hover {
+    color: #001a33;
+    cursor: pointer;
+}
+
+#rememberMe {
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    appearance: checkbox;
+    display: inline-block;
+    width: auto;
+}
+
+#remember{
+    color: #1a8cff;
+    font-size: 12px;
+    
+}
+
+.ml-4 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    background-color: #001a33;
+    width: 145px;
+    height: 35px;
+    border-radius: 20px;
+    color:aliceblue;
+    border: 1px solid #001a33;
+    text-align: center;
+    align-content: center;
+}
+
+.ml-4:hover{
+   color:#001a33;
+   background-color: ghostwhite;
+}
+
+#lastPhrase{
+    color: dimgray;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    
+}
+
+x-button{
+    color: dimgray;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+x-button:hover{
+    color:#004d99;
+    cursor: pointer;
+}
+
 </style>
