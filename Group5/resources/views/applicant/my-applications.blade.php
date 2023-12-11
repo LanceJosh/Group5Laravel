@@ -52,6 +52,69 @@
     font-weight: bolder;
     font-style: sans-serif;
      }
+
+     .accept-modal-btn,
+        .reject-modal-btn {
+            cursor: pointer;
+            text-decoration: underline;
+            color: blue;
+        }
+
+        #accept {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    background-color: #03c04a;
+    width: 130px;
+    height: 35px;
+    border-radius: 20px;
+    color:aliceblue;
+    border: 1px solid #03c049;
+    text-align: center;
+    align-content: center;
+}
+
+#accept:hover{
+   color:#03c049;
+   background-color: ghostwhite;
+}
+
+
+
+#reject {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    background-color: #ce2029;
+    width: 130px;
+    height: 35px;
+    border-radius: 20px;
+    color:aliceblue;
+    border: 1px solid #ce2029;
+    text-align: center;
+    align-content: center;
+}
+
+#reject:hover{
+   color:#ce2029;
+   background-color: ghostwhite;
+}
+
+#cancel {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    background-color: #808080;
+    width: 130px;
+    height: 35px;
+    border-radius: 20px;
+    color:aliceblue;
+    border: 1px solid #808080;
+    text-align: center;
+    align-content: center;
+}
+
+#cancel:hover{
+   color:#808080;
+   background-color: ghostwhite;
+}
     
     </style>
 </head>
@@ -102,7 +165,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{$application->created_at->diffForHumans()}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap"><a href="{{ url($application->resume) }}" target="_blank">{{$resume_filename}}</a></td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancelModal{{$application->id}}">
+                                <button type="button" class="btn btn-danger" id="reject" data-toggle="modal" data-target="#cancelModal{{$application->id}}">
                                     Cancel </button>
                                 </td>
                             </tr>
@@ -119,11 +182,11 @@
                                                 Are you sure you want to cancel this application?
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel">Close</button>
                                                 <form method="post" action="{{route('applicant.cancel', ['application' => $application])}}">
                                                     @csrf
                                                     @method('delete')
-                                                    <input type="submit" value="Cancel" id="confirmCancelButton" class="btn btn-danger" />
+                                                    <input type="submit" value="Cancel" id="reject" class="btn btn-danger" />
                                                 </form>
                                             </div>
                                         </div>
@@ -145,10 +208,10 @@
 
         </div>
     </body>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
 
 </x-app-layout>
