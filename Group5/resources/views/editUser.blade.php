@@ -12,7 +12,7 @@
     <label for="role" class="col-sm-2 col-form-label" style="font-weight: bold;">{{ __('Role') }}</label>
     <div class="col-sm-10">
         <select id="role" class="form-control" style="border-radius: 5px;" name="role" required autofocus>
-            <option value="">{{ $user->role }}</option>
+            <option value="" selected disabled>{{ __('Please select a role') }}</option>
             <option value="admin">{{ __('Admin') }}</option>
             <option value="employer">{{ __('Employer') }}</option>
             <option value="applicant">{{ __('Applicant') }}</option>
