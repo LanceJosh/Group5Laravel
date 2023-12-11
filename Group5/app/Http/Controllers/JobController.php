@@ -62,7 +62,11 @@ class JobController extends Controller
             'description' => 'required',
             'salary' => 'required|numeric',
             'is_fulltime' => 'required',
-        ]);
+        ], ['job_title.required' => 'This is a required field',
+         'description.required' => 'This is a required field.', 
+         'salary.required' => 'This is a required field.', 
+         'salary.numeric' => 'Values should be an integer.', 
+         'is_fulltime.required' => 'This is a required field.']);
 
         $data['is_fulltime'] = boolval($data['is_fulltime']);
 
