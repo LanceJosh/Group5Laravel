@@ -28,6 +28,7 @@ class User extends Authenticatable
         'role',
         'email',
         'password',
+        'profile_photo_path'
     ];
 
     public function jobs()

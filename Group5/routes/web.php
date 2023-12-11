@@ -71,6 +71,8 @@ Route::get('/job/{job}/edit', [JobController::class, 'edit'])->name('job.edit');
 Route::put('/job/{job}/update', [JobController::class, 'update'])->name('job.update');
 Route::delete('/job/{job}/delete', [JobController::class, 'delete'])->name('job.delete');
 Route::get('/job/{job}/applicants', [JobController::class, 'show_applicants'])->name('job.applicants');
+Route::put('job/{application}/accept', [ApplicationController::class, 'accept_application'])->name('application.accept');
+Route::put('job/{application}/reject', [ApplicationController::class, 'reject_application'])->name('application.reject');
 
 //applicant
 Route::get('/applicant/jobs', [JobController::class, 'showAllJobsToApplicant'])->name('applicant.index');
@@ -79,6 +81,8 @@ Route::post('/applicant/submit-application', [ApplicationController::class, 'sub
 Route::get('/applicant/my-applications', [ApplicationController::class, 'my_applications'])->name('applicant.my-applications');
 Route::delete('/applicant/{application}/cancel', [ApplicationController::class, 'cancel'])->name('applicant.cancel');
 
+//profile
+Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('profile.update');
 
 Route::get('/all/category', [CategoryController::class,'index'])->name('AllCat')->middleware('role:admin');
 Route::post('/all/category', [CategoryController::class, 'store'])->name('categories.store')->middleware('role:admin');

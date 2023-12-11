@@ -31,48 +31,34 @@ class ApplicationController extends Controller
         try {
             $data = $request->validate([
                 'resume' => 'required|mimes:pdf',
-                'job_id' => 'required', // Make sure 'job_id' is required
+                'job_id' => 'required', 
             ]);
 
             $user = Auth::user();
-            $jobId = $data['job_id']; // Retrieve 'job_id' from the validated data
+            $jobId = $data['job_id']; 
 
             $data['status'] = 'pending';
             $data['applicant_id'] = $user->id;
             $data['job_id'] = $jobId;
 
-            // Get the uploaded file
             $resumeFile = $request->file('resume');
-
-            // Generate a unique identifier (hexcode)
             $nameGen = hexdec(uniqid());
-
-            // Build the new filename with the unique identifier
             $newFilename = $nameGen . '_' . $resumeFile->getClientOriginalName();
-
-            // Store the uploaded PDF with the new filename in the public/resumes directory
             $up_loc = 'resumes/';
             $resumePath = $up_loc . $newFilename;
-
             $resumeFile->move($up_loc, $newFilename);
-
-            // Save the file path to the 'resume' column
             $data['resume'] = $resumePath;
 
-            // Insert the application into the database
             Application::insert([
                 'applicant_id' => $data['applicant_id'],
                 'job_id' => $data['job_id'],
                 'status' => $data['status'],
                 'resume' => $data['resume'],
-                'created_at' => Carbon::now(), // You can use now() for the current timestamp
+                'created_at' => Carbon::now(),
             ]);
 
             return Redirect('/applicant/my-applications')->with('success', 'Application successful');
         } catch (\Exception $e) {
-            // Log the exception for debugging
-
-            // Return a response indicating the error, or redirect back with an error message
             return Redirect()->back()->with('error', 'An error occurred while submitting the application.');
         }
     }
@@ -86,5 +72,23 @@ class ApplicationController extends Controller
         }
 
         return Redirect()->back()->with('success', 'Application to ' . $application->job->job_title . ' has been cancelled.');
+    }
+
+    public function accept_application(Application $application){
+        $application = Application::find($application->id);
+
+        $application->status = "accepted";
+        $application->save();
+
+        return Redirect()->back()->with('success', $application->applicant->name . "'s application has been accepted." );
+    }
+
+    public function reject_application(Application $application){
+        $application = Application::find($application->id);
+
+        $application->status = "rejected";
+        $application->save();
+
+        return Redirect()->back()->with('success', $application->applicant->name . "'s application has been rejected." );
     }
 }
