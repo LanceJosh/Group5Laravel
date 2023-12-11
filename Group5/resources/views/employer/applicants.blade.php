@@ -138,7 +138,12 @@
         background-color: #82caff; 
         cursor: pointer;
      } 
-   
+     #texts th{
+    font-size: 15px;
+    color: #004d99;
+    font-style: sans-serif;
+    text-align: center;
+} 
    
    </style>
     </head>
@@ -173,7 +178,7 @@
                 <div class="table-responsive">
                     <table class="min-w-full divide-y divide-gray-200 shadow-sm rounded-lg overflow-hidden">
                         <thead class="bg-blue-200">
-                            <tr>
+                            <tr id="texts">
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">Count</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">Application ID</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">Status</th>
