@@ -100,20 +100,17 @@
 							</li>
 							
 							<li>
-								<a href="#">Job List</a>
+								<a href="{{ route('applicant.index') }}">Job List</a>
 
 							</li>
-							
+
+
 							<li>
-								<a href="#">Employers</a>
+								<a href="{{ route('aboutus') }}">About Us</a>
 							</li>
 							
 							<li>
-								<a href="#">Employees</a>
-							</li>
-							
-							<li>
-								<a href="#">Contact Us</a>
+								<a href="{{ route('contact') }}">Contact</a>
 							</li>
 
 						</ul>
@@ -146,29 +143,6 @@
 
 					<h1>connecting dreams, one click at a time</h1>
 					<p>Your path to career success starts at Hire Lab&Co.</p>
-
-					<div class="main-search-form-wrapper">
-					
-						<form action="#" method="GET" autocomplete="off">
-					
-							<div class="form-holder">
-								<div class="row">
-									
-									<div class="col-xss-10 col-xs-10 col-sm-10">
-										<input type="text" placeholder="Job title or keywords"></input>
-									</div>
-								</div>
-							
-							</div>
-							
-						</form>
-						
-					</div>
-
-												
-					<div class="btn-holder">
-								<button class="btn-search" type="submit">SEARCH</button>
-							</div>
 
 				</div>
 				
@@ -241,133 +215,87 @@
 			
 			<div class="bg-light pt-80 pb-80">
 			
-				<div class="container">
-				
-					<div class="row">
-						
-						<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-						
-							<div class="section-title">
-							
-								<h2>Latest Jobs</h2>
-								
-							</div>
-						
-						</div>
-					
-						<div class="row">
-							<div class="column">
-								<div class="card">Graphic Designer
-								<br><a href="#">APPLY NOW</a>
-								</div>
-							</div>
-							<div class="column">
-								<div class="card">UX Design
-								<br><a href="#">APPLY NOW</a>
-								</div>
-							</div>
-							<div class="column">
-								<div class="card">UI Design
-								<br><a href="#">APPLY NOW</a>
-								</div>
-							</div>
-							<div class="column">
-								<div class="card">PHP Developer
-								<br><a href="#">APPLY NOW</a>
-								</div>
-							</div>
+			
+            <div class="container">
+
+<div class="row">
+
+    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+    
+        <div class="section-title">
+        
+            <br><h2 style="text-align: center;">Latest Jobs</h2>
+            
+        </div>
+    
+    </div>
+
+</div>
+<div class="career-subtitle">
+    <p> Your Gateway to IT Excellence</p>
+</div>
+         <div class="column">
+         <div class="career-wrapper">
+            <div class="career-card">
+                <img class="career-image"  src="images/interview.jpg"/>
+                <div class="career-detail">
+                    <h4>UI/UX Designer</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <hr class="divider">
+                </div>
+            </div>
+         </div>
+        </div>
+        <div class="column">
+         <div class="career-wrapper">
+            <div class="career-card">
+                <img class="career-image"  src="images/advice.jpg"/>
+                <div class="career-detail">
+                    <h4>Full-stack Developer</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <hr class="divider">
+                </div>
+            </div>
+         </div>
+    </div>
+    <div class="column">
+         <div class="career-wrapper">
+            <div class="career-card">
+                <img class="career-image"  src="images/boost.jpg"/>
+                <div class="career-detail">
+                    <h4>Quality Assurance</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <hr class="divider">
+                </div>
+            </div>
+         </div>
+    </div>
+    <div class="column">
+         <div class="career-wrapper">
+            <div class="career-card">
+                <img class="career-image"  src="images/switch.png"/>
+                <div class="career-detail">
+                    <h4>System Engineer</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <hr class="divider">
+                </div>
+            </div>
+         </div>
+    </div>
+</div>
 							</div>
 
 							<div class="btn-holder">
-								<button class="btn-more" type="submit">MORE</button>
+								<button class="btn-more" type="submit"><a href="{{ route('applicant.index') }}">MORE</a></button>
 							</div>	
 					</div>
 					
 				</div>
 			
 			</div>
-			
-			<section class="career" id="career">
-			<div class="pt-0 pb-50">
-			
-				<div class="container">
-
-					<div class="row">
-					
-						<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-						
-							<div class="section-title">
-							
-								<br><h2>Career Development</h2>
-								
-							</div>
-						
-						</div>
-					
-					</div>
-				<div class="career-subtitle">
-						<p> Learn more career tips from Hire Lab&Co.</p>
-				</div>
-							 <div class="column">
-							 <div class="career-wrapper">
-								<div class="career-card">
-									<img class="career-image"  src="images/interview.jpg"/>
-									<div class="career-detail">
-										<span>August 21, 2023</span>
-										<h4>How to ace your interview</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-										<hr class="divider">
-										<a href="#" class="career-more">Read</a>
-									</div>
-								</div>
-							 </div>
-							</div>
-							<div class="column">
-							 <div class="career-wrapper">
-								<div class="career-card">
-									<img class="career-image"  src="images/advice.jpg"/>
-									<div class="career-detail">
-										<span>August 21, 2023</span>
-										<h4>10 Career advice tips</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-										<hr class="divider">
-										<a href="#" class="career-more">Read</a>
-									</div>
-								</div>
-							 </div>
-						</div>
-						<div class="column">
-							 <div class="career-wrapper">
-								<div class="career-card">
-									<img class="career-image"  src="images/boost.jpg"/>
-									<div class="career-detail">
-										<span>August 21, 2023</span>
-										<h4>Boost your career to the next level</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-										<hr class="divider">
-										<a href="#" class="career-more">Read</a>
-									</div>
-								</div>
-							 </div>
-						</div>
-						<div class="column">
-							 <div class="career-wrapper">
-								<div class="career-card">
-									<img class="career-image"  src="images/switch.png"/>
-									<div class="career-detail">
-										<span>August 21, 2023</span>
-										<h4>Ready for a career switch?</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-										<hr class="divider">
-										<a href="#" class="career-more">Read</a>
-									</div>
-								</div>
-							 </div>
-						</div>
-				</div>
-
-			</div>
-		</section>
+        <div class="index-desc">
+            <img class="index-desc" width="1492px" height="900px" src="{{ URL::to('/images/index-content.png') }}">
+        </div>
 			
 			<footer class="footer-wrapper">
 			
