@@ -54,7 +54,21 @@
     object-fit:cover; 
   }
   
+.nav-mini-wrapper ul li a{
+   
+    position: absolute;
+    padding: auto;
+    
+    
+}
+.nav-mini-wrapper ul{
+    list-style-type: none;
+}
 
+
+#login{
+   right: 60px;
+}
   </style>
 <body class="home">
 
@@ -109,7 +123,7 @@
 					<div class="nav-mini-wrapper">
 						<ul class="nav-mini sign-in">
 						
-							<li><a href="/login-view">login</a></li>
+							<li id = "login"><a href="/login-view">login</a></li>
 							<li><a href= "/register-view">register</a></li>		
 
 						</ul>
