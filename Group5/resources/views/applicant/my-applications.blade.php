@@ -197,6 +197,7 @@
                                     Cancel </button>
                                     @else
                                     <p>Congrats on your new job.</p>
+                                    <p>Wait for your employer for further instructions.</p>
                                     @endif
                                 </td>
                             </tr>
