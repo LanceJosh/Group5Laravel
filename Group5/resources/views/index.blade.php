@@ -423,7 +423,9 @@
  .navbar-default {
     background: transparent;
 }
-
+#navbar a{
+    text-shadow: 0 0 3px #20262F;
+}
 .navbar {
     border-bottom: 0;
     padding: 0;
@@ -516,6 +518,7 @@ ul.nav-mini.sign-in li a {
     padding: 3px 8px 4px;
     font-size: 12px;
     letter-spacing: 0.5px;
+    text-shadow: 0 0 3px #20262F;
 }
 
 ul.nav-mini.sign-in li a:hover {
