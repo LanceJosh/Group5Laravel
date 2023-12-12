@@ -10,6 +10,34 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <style>
+                        nav {
+                            background-color: #013220;
+                            color: #fff;
+                            text-align: center;
+                            padding: 10px 0;
+                        }
+
+                        nav ul {
+                            list-style-type: none;
+                            padding: 0;
+                        }
+
+                        nav ul li {
+                            display: inline;
+                            margin-right: 20px;
+                        }
+
+                        nav a {
+                            text-decoration: none;
+                            color: #fff;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            transition: color 0.3s;
+                        }
+
+                        nav a:hover {
+                            color: #ff6f61;
+                        }
             div.alljobs-header img {
                 width: 4000px;
             }

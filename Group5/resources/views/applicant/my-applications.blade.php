@@ -30,7 +30,34 @@
 <link href="css/Login.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+                        nav {
+                            background-color: #013220;
+                            color: #fff;
+                            text-align: center;
+                            padding: 10px 0;
+                        }
 
+                        nav ul {
+                            list-style-type: none;
+                            padding: 0;
+                        }
+
+                        nav ul li {
+                            display: inline;
+                            margin-right: 20px;
+                        }
+
+                        nav a {
+                            text-decoration: none;
+                            color: #fff;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            transition: color 0.3s;
+                        }
+
+                        nav a:hover {
+                            color: #ff6f61;
+                        }
     .header{
         top: 40px;
     }
