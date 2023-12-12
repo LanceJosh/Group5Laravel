@@ -323,10 +323,9 @@
 										<h5 class="footer-title">Quick Links</h5>
 										<ul class="footer-menu clearfix">
 											<li><a href="./">Home</a></li>
-											<li><a href="job-list.php">Job List</a></li>
-											<li><a href="employers.php">Employers</a></li>
-											<li><a href="employees.php">Employees</a></li>
-											<li><a href="contact.php">Contact Us</a></li>
+											<li><a href="{{ route('applicant.index') }}">Job List</a></li>
+                                            <li><a href="{{ route('aboutus') }}">About Us</a></li>
+											<li><a href="{{ route('contact') }}">Contact Us</a></li>
 											<li><a href="#">Go to top</a></li>
 
 										</ul>
@@ -780,7 +779,6 @@ ul.nav-mini li a {
     padding: 0;
 }
 
-.navbar-sticky .navbar-nav > li > a {}
 
 .navbar-sticky .navbar-nav > li > a:hover,
 .navbar-sticky .navbar-nav > li > a:focus {
@@ -810,7 +808,6 @@ ul.nav-mini li a {
     top: 50px;
 }
 
-.navbar-sticky .logo-wrapper .logo {}
 
 @media only screen and (max-width: 1199px) {}
 

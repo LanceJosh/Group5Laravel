@@ -332,7 +332,7 @@
                                                 </div>
                                             </div>
                                             <div>
-                                                <input type="submit" value="UPDATE" />
+                                                <input type="submit" id ="edit" value="UPDATE" />
                                             </div>
                                         </div>
                                 </form>

@@ -91,9 +91,4 @@
                 </body>
 
     </html>
-                <footer>
-                    <div class="footer-content">
-                        <p>© 2023 HireLab&Co. | All rights reserved.</p>
-                    </div>
-                </footer>
 </x-app-layout>
