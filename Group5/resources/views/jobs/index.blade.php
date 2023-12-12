@@ -83,7 +83,7 @@
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     background-color: #001a33;
-    width: 200px;
+    width: 164px;
     height: 35px;
     border-radius: 20px;
     color:aliceblue;
@@ -215,9 +215,9 @@
             @endif
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" id="post" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Post a Job
-                        </button>
+                        </button> 
 
                     </div>
                 </div>
@@ -270,7 +270,7 @@
                                         @enderror
                                     </div>
                                     <div class="button">
-                                        <input type="submit" value="ADD" />
+                                        <input type="submit" id ="edit" value="ADD" />
                                     </div>
                             </form>
                             </div>
