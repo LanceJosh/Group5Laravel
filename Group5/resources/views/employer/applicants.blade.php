@@ -201,7 +201,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{$application->id}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{$application->status}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{$application->created_at->diffForHumans()}}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{$application->applicant->name}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><a href="{{route('view.user.profile', ['user' => $application->applicant->id])}}">{{$application->applicant->name}}</a></td>
                                 <td class="px-6 py-4 whitespace-nowrap"><a href="{{ url($application->resume) }}" target="_blank">{{$resume_filename}}</a></td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     @if($application->status === "pending")

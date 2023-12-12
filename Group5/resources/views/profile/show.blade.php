@@ -1,76 +1,77 @@
 <head>
     <style>
-.myApplications{
-    font-size: 30px;
-    color: #004d99;
-    letter-spacing: 2px;
-    line-height: 0.2em;
-    font-weight: bolder;
-    font-style: sans-serif;
-    margin-top: 5%;
-     }
-     nav {
-        background-color: #013220;
-        color: #fff;
-        text-align: center;
-        padding: 10px 0;
-    }
+        .myApplications {
+            font-size: 30px;
+            color: #004d99;
+            letter-spacing: 2px;
+            line-height: 0.2em;
+            font-weight: bolder;
+            font-style: sans-serif;
+            margin-top: 5%;
+        }
 
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-    }
+        nav {
+            background-color: #013220;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
 
-    nav ul li {
-        display: inline;
-        margin-right: 20px;
-    }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-    nav a {
-        text-decoration: none;
-        color: #fff;
-        font-weight: bold;
-        text-transform: uppercase;
-        transition: color 0.3s;
-    }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
 
-    nav a:hover {
-        color: #ff6f61;
-    }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6f61;
+        }
     </style>
 </head>
 
 <x-app-layout>
-<div class="header">
-        <center><h2 class="myApplications">
-            My Profile
-        </h2></center>
-</div>
+    <div class="header">
+        <center>
+            <h2 class="myApplications">
+                My Profile
+            </h2>
+        </center>
+    </div>
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-        <div class="mt-6">
+            <div class="mt-6">
                 <h2 class="text-lg font-semibold leading-6 text-gray-900">Profile Picture</h2>
                 <div class="mt-4 flex items-center">
                     <img id="profilePreview" class="h-24 w-24 rounded-full object-cover" src="{{ asset(auth()->user()->profile_photo_path) }}" alt="{{ auth()->user()->name }}">
-                    <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="ml-4">
+                    <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="ml-4" id="profileForm">
                         @csrf
                         @method('PUT')
 
-                        <input type="file" name="profile_photo" accept="image/*" class="hidden" id="profile_photo" onchange="previewProfilePicture(this);">
-                        
-                        <!-- Change button using basic HTML with larger padding -->
-                        <button type="button" class="ml-2 p-2 bg-gray-200 hover:bg-gray-300 rounded-md cursor-pointer" onclick="document.getElementById('profile_photo').click();">
-                            Change
-                        </button>
+                        <input type="file" name="profile_photo" accept="image/*" class="hidden" id="profile_photo" onchange="updateImagePreview(this); document.getElementById('profileForm').submit();">
 
-                        <!-- Save button using basic HTML with larger padding -->
+                        <label for="profile_photo" class="ml-2 p-2 bg-gray-200 hover:bg-gray-300 rounded-md cursor-pointer">
+                            Change
+                        </label>
+
                         <button type="submit" class="ml-4 p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">
                             Save
                         </button>
                     </form>
                 </div>
             </div>
-            <!-- End Profile Picture Update Form -->
+
 
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
             @livewire('profile.update-profile-information-form')
@@ -107,4 +108,17 @@
             @endif
         </div>
     </div>
+    <script>
+                function updateImagePreview(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            document.getElementById('profilePreview').src = e.target.result;
+                        };
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
 </x-app-layout>
