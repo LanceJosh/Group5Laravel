@@ -163,12 +163,12 @@
     padding-right: 2.5rem;
     margin-bottom: 10%;
     margin-left: 40%;
-    background-color: #001a33;
+    background-color: ghostwhite;
     width: 160px;
     height: 35px;
     border-radius: 20px;
-    color:aliceblue;
-    border: 1px solid #001a33;
+    color:black;
+    border: 1px solid ghostwhite;
     display: flex;
     text-align: center;
     align-content: center;
@@ -176,8 +176,9 @@
     z-index: 10px;
 }
 .container button:hover {
-    color:#001a33;
-    background-color: ghostwhite;
+    background-color: #001a33;
+    color:white;
+    
 }
 
 .card-title:hover{
@@ -193,13 +194,39 @@
 .buttons{
     position: absolute;
 }
+
+div.alljobs-header img {
+                width: 4000px;
+            }
+
+            div.alljobs-header h2 {
+                text-align: center;
+                color: #87CEEB;
+                font-weight: bold;
+                font-size: 50px;
+                margin-top: -370px;
+                text-transform: uppercase;
+            }
+
+            div.alljobs-header h1 {
+                text-align: center;
+                color: white;
+                font-weight: bold;
+                font-size: 60px;
+                margin-top: 50px;
+                margin-bottom: 200px;
+            }
+
+
     </style>
     </head>
 
 <body>
 <x-app-layout>
-    <br><br>
-    <div class="header">
+   
+    <div class="alljobs-header">
+    <img src="{{ URL::to('/images/offer.jpg') }}">
+    <br>
        <center> <h2 class="myApplications">
             {{ __('Employer Job Listings') }}
         </h2> </center>
@@ -215,7 +242,7 @@
             @endif
 
             <!-- Button trigger modal -->
-            <button type="button" id="post" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Post a Job
                         </button> 
 

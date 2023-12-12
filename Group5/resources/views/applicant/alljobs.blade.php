@@ -78,6 +78,40 @@
             .alljob-subhead {
                 margin-top: -200px;
             }
+
+            #edit {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    background-color: #001a33;
+    width: 160px;
+    height: 35px;
+    border-radius: 20px;
+    color:aliceblue;
+    border: 1px solid #001a33;
+   
+}
+
+#edit:hover{
+   color:#001a33;
+   background-color: ghostwhite;
+}
+
+#submit {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    background-color: #001a33;
+    width: 220px;
+    height: 35px;
+    border-radius: 20px;
+    color:aliceblue;
+    border: 1px solid #001a33;
+   
+}
+
+#submit:hover{
+   color:#001a33;
+   background-color: ghostwhite;
+}
         </style>
     </head>
 
@@ -110,8 +144,8 @@
                             <strong>Employer:</strong> {{ $job->employer->name }}
                         </p>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $job->job_title }}">
-                            Apply Now
+                        <button type="button" class="btn btn-primary" id ="edit" data-toggle="modal" data-target="#exampleModal{{ $job->job_title }}">
+                        Apply Now
                         </button>
 
                     </div>
@@ -145,7 +179,7 @@
                                                 <label class="form-label">Upload your resume here: </label>
                                                 <input type="file" name="resume" class="form-control" accept="application/pdf">
                                                 <br>
-                                                <input type="submit" class="btn btn-primary" value="Submit Application" />
+                                                <center><input type="submit" id ="submit" class="btn btn-primary" value="Submit Application" /></center>
                                             </div>
                                         </div>
                                     </form>
