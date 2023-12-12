@@ -1,10 +1,51 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+<head>
+    <style>
+.myApplications{
+    font-size: 30px;
+    color: #004d99;
+    letter-spacing: 2px;
+    line-height: 0.2em;
+    font-weight: bolder;
+    font-style: sans-serif;
+    margin-top: 5%;
+     }
+     nav {
+        background-color: #013220;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
 
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #ff6f61;
+    }
+    </style>
+</head>
+
+<x-app-layout>
+<div class="header">
+        <center><h2 class="myApplications">
+            My Profile
+        </h2></center>
+</div>
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
         <div class="mt-6">
