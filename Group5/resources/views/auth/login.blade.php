@@ -30,23 +30,31 @@
 <link href="css/Login.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="body">
+
 <x-guest-layout class="mh-4">
-    <x-authentication-card style="background-image: url(images/loginBG.png); background-size: cover; background-position: center;">
-        <x-slot name="logo">
-        <img src="/images/logo.png" alt="Logo" class="logo" width = "100" height = "100">
-        </x-slot>
+
+    <x-authentication-card style=" background-size: cover; background-position: center;">
+   
+    
+    
+    
+    
 
         <x-validation-errors class="mb-4" />
 
+        
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
             </div>
         @endif
-
+        
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <br>
+            <x-slot name="logo">
+        <img src="/images/logo.png" alt="Logo" class="logo" width = "100" height = "100">
+        </x-slot>
            <center> <h2 id = "mainLabel"> Login </h2> </center>
             <br>
  <div class="flex items-center">
