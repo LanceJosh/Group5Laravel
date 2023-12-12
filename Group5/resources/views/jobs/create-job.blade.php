@@ -156,13 +156,6 @@
 
 <body>
 
-  <div class="sidebar">
-    <img src="{{URL::asset('images/logo.png')}}">
-    <a href="{{ route('dashboard') }}">Dashboard</a>
-    <a href="{{ route('job.index') }}">Jobs Management</a>
-    <a href="{{ route('aboutus') }}">About Us</a>
-    <a href="{{ route('contact') }}">Contact</a>
-  </div>
 
   <div class="content">
     <div class="box">

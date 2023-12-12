@@ -131,6 +131,27 @@
     text-decoration: none;
 
 }
+.container button{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    margin-bottom: 10%;
+    margin-left: 40%;
+    background-color: #001a33;
+    width: 160px;
+    height: 35px;
+    border-radius: 20px;
+    color:aliceblue;
+    border: 1px solid #001a33;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    position: relative;
+    z-index: 10px;
+}
+.container button:hover {
+    color:#001a33;
+    background-color: ghostwhite;
+}
 
 .card-title:hover{
     color: #004d99;
@@ -165,7 +186,70 @@
                 {{session('success')}}
             </div>
             @endif
-            <a href="{{route('job.create')}}" id ="post" class="btn btn-primary mb-3">Post a Job</a>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Post a Job
+                        </button>
+
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Create a Job</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                            <form method="post" action="{{route('job.store')}}">
+                                @csrf
+                                @method('post')
+                            <div class="job-input">
+                                        <label>Job Title: </label><br>
+                                        <input type="text" name="job_title" class="w3-input" style="width: 250px;" />
+                                        @error('job_title')
+                                        <div class="small text-danger mt-2">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="job-input">
+                                        <label>Description: </label><br>
+                                        <input type="text" name="description" class="w3-input" style="width: 250px;"></input>
+                                        @error('description')
+                                        <div class="small text-danger mt-2">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="job-input">
+                                        <label>Salary: $</label><br>
+                                        <input type="number" name="salary" class="w3-input" style="width: 250px;" />
+                                        @error('salary')
+                                        <div class="small text-danger mt-2">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="job-input">
+                                        <label>Job Type: </label>
+                                        <div>
+                                        <label><input type="radio" name="is_fulltime" value="1"> Full Time</label>
+                                        </div>
+                                        <div>
+                                        <label><input type="radio" name="is_fulltime" value="0"> Part Time</label>
+                                        </div>
+                                        @error('is_fulltime')
+                                        <div class="small text-danger mt-2">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="button">
+                                        <input type="submit" value="ADD" />
+                                    </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <div>
                 @foreach($jobs as $job)
                 <div class="card mb-3">
@@ -177,9 +261,59 @@
                             <strong>Full Time:</strong> {{ $job->is_fulltime ? 'Yes' : 'No' }} <br>
                             <strong>Employer:</strong> {{ $job->employer->name }}
                         </p>
-                        <center>
           <div style="display: flex; gap: 10px; justify-content: center;">
-        <a href="{{ route('job.edit', ['job' => $job]) }}" id="edit" class="btn btn-primary mb-3">Edit</a>
+
+                                  <!-- Button trigger modal -->
+                                  <button type="button" id="edit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $job->job_title }}">
+                            Edit
+                        </button>
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="exampleModal{{ $job->job_title }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Edit a Job</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="{{route('job.update', ['job' => $job])}}">
+                                    @csrf
+                                    @method('put')
+                                        <div class="job-container">
+                                                <div class="job-input">
+                                                    <label>Job Title: </label><br>
+                                                        <input type="text" name="job_title" class="w3-input" style="width: 250px;" value="{{$job->job_title}}"/>
+                                                </div>
+                                            <div class="job-input">
+                                                <label>Description: </label><br>
+                                                <input type="text" name="description" class="w3-input" style="width: 250px;" value="{{$job->description}}"/>
+                                            </div>
+                                            <div class="job-input">
+                                                <label>Salary: $</label><br>
+                                                <input type="number" name="salary" class="w3-input" style="width: 250px;" value="{{$job->salary}}"/>
+                                            </div>
+                                            <div class="job-input">
+                                                <label>Job Type: </label>
+                                                <div>
+                                                    <label><input type="radio" name="is_fulltime" value="1" {{$job->is_fulltime ? "checked" : ''}}> Full Time</label>
+                                                </div>
+                                                <div>
+                                                    <label><input type="radio" name="is_fulltime" value="0" {{!$job->is_fulltime ? "checked" : ''}}> Part Time</label>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <input type="submit" value="UPDATE" />
+                                            </div>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+
         <button type="button" class="btn btn-danger" id="delete" data-toggle="modal" data-target="#deleteModal{{$job->id}}">
                                     Delete
                                 </button>
