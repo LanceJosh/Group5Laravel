@@ -16,7 +16,7 @@ class Authenticate extends BaseAuthenticate
   * @param string[] ...$guards
   * @return mixed
   */
-  public function handle($request, Closure $next, $role)
+  public function handle($request, $next, $role)
   {
       return redirect('login');
   }

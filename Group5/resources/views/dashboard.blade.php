@@ -158,7 +158,26 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{$user->email}}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{$user->created_at}}</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <a href="{{ route('users.edit', $user->id) }}" id ="edit" class="btn btn-secondary">Edit</a>
+                            <button type="button" class="btn btn-secondary" id="edit" data-toggle="modal" data-target="#editModal{{$user->id}}">
+                                            Edit
+                                        </button>
+
+                                        <!-- Edit User Modal -->
+                                        <div class="modal fade" id="editModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="editModalLabel">Edit User</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @include('EditUser') <!-- Include the EditUser.php content here -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 
                                  <button type="button" class="btn btn-danger" id="delete" data-toggle="modal" data-target="#deleteModal{{$user->id}}">
                                         Delete
