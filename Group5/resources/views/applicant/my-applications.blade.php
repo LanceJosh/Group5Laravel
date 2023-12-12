@@ -192,8 +192,12 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{$application->created_at->diffForHumans()}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap"><a href="{{ url($application->resume) }}" target="_blank">{{$resume_filename}}</a></td>
                                 <td class="px-6 py-4 whitespace-nowrap">
+                                    @if($application->status === 'pending')
                                 <button type="button" class="btn btn-danger" id="reject" data-toggle="modal" data-target="#cancelModal{{$application->id}}">
                                     Cancel </button>
+                                    @else
+                                    <p>Congrats on your new job.</p>
+                                    @endif
                                 </td>
                             </tr>
                             <div class="modal fade" id="cancelModal{{$application->id}}" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel{{$application->id}}" aria-hidden="true">

@@ -189,7 +189,7 @@
                             <strong>Description:</strong> {{ $job->description }} <br>
                             <strong>Salary:</strong> ${{ $job->salary }} <br>
                             <strong>Full Time:</strong> {{ $job->is_fulltime ? 'Yes' : 'No' }} <br>
-                            <strong>Employer:</strong> {{ $job->employer->name }}
+                            <strong>Employer:</strong> <a href="{{route('view.user.profile', ['user' => $job->employer->id])}}">{{ $job->employer->name }}</a>
                         </p>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" id ="edit" data-toggle="modal" data-target="#exampleModal{{ $job->job_title }}">
