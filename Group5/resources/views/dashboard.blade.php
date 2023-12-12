@@ -200,7 +200,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        @include('EditUser') <!-- Include the EditUser.php content here -->
+                                                        @include('EditUser') 
                                                     </div>
                                                 </div>
                                             </div>

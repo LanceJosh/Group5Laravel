@@ -115,6 +115,24 @@
    background-color: ghostwhite;
 }
 
+#update {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    background-color: #001a33;
+    width: 190px;
+    height: 35px;
+    border-radius: 20px;
+    color:aliceblue;
+    border: 1px solid #001a33;
+    text-align: center;
+    align-content: center;
+}
+
+#updatet:hover{
+   color:#001a33;
+   background-color: ghostwhite;
+}
+
 #delete {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
@@ -235,11 +253,6 @@ div.alljobs-header img {
     <br><br>
         <div class="container">
          
-            @if(session()->has('success'))
-            <div class="alert alert-success" role="alert">
-                {{session('success')}}
-            </div>
-            @endif
 
             <!-- Button trigger modal -->
             <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -248,6 +261,12 @@ div.alljobs-header img {
 
                     </div>
                 </div>
+                <br><br>
+                @if(session()->has('success'))
+            <div class="alert alert-success" role="alert">
+                {{session('success')}}
+            </div>
+            @endif
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -317,56 +336,57 @@ div.alljobs-header img {
                         </p>
           <div style="display: flex; gap: 10px; justify-content: center;">
 
-                                  <!-- Button trigger modal -->
-                                  <button type="button" id="edit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $job->job_title }}">
-                            Edit
-                        </button>
+                                <!-- Button trigger modal -->
+<button type="button" id="edit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $job->id }}">
+    Edit
+</button>
 
-        <!-- Edit Modal -->
-        <div class="modal fade" id="exampleModal{{ $job->job_title }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edit a Job</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+<!-- Edit Modal -->
+<div class="modal fade" id="exampleModal{{ $job->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit a Job</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="{{ route('job.update', ['job' => $job]) }}">
+                    @csrf
+                    @method('put')
+
+                    <div class="job-container">
+                        <div class="job-input">
+                            <label for="edit_job_title">Job Title:</label><br>
+                            <input type="text" name="edit_job_title" class="w3-input" style="width: 250px;" value="{{ $job->job_title }}" />
+                        </div>
+                        <div class="job-input">
+                            <label for="edit_description">Description:</label><br>
+                            <input type="text" name="edit_description" class="w3-input" style="width: 250px;" value="{{ $job->description }}" />
+                        </div>
+                        <div class="job-input">
+                            <label for="edit_salary">Salary: $</label><br>
+                            <input type="number" name="edit_salary" class="w3-input" style="width: 250px;" value="{{ $job->salary }}" />
+                        </div>
+                        <div class="job-input">
+                            <label>Job Type:</label>
+                            <div>
+                                <label><input type="radio" name="edit_is_fulltime" value="1" {{ $job->is_fulltime ? 'checked' : '' }}> Full Time</label>
                             </div>
-                            <div class="modal-body">
-                                <form method="post" action="{{route('job.update', ['job' => $job])}}">
-                                    @csrf
-                                    @method('put')
-                                        <div class="job-container">
-                                                <div class="job-input">
-                                                    <label>Job Title: </label><br>
-                                                        <input type="text" name="job_title" class="w3-input" style="width: 250px;" value="{{$job->job_title}}"/>
-                                                </div>
-                                            <div class="job-input">
-                                                <label>Description: </label><br>
-                                                <input type="text" name="description" class="w3-input" style="width: 250px;" value="{{$job->description}}"/>
-                                            </div>
-                                            <div class="job-input">
-                                                <label>Salary: $</label><br>
-                                                <input type="number" name="salary" class="w3-input" style="width: 250px;" value="{{$job->salary}}"/>
-                                            </div>
-                                            <div class="job-input">
-                                                <label>Job Type: </label>
-                                                <div>
-                                                    <label><input type="radio" name="is_fulltime" value="1" {{$job->is_fulltime ? "checked" : ''}}> Full Time</label>
-                                                </div>
-                                                <div>
-                                                    <label><input type="radio" name="is_fulltime" value="0" {{!$job->is_fulltime ? "checked" : ''}}> Part Time</label>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <input type="submit" id ="edit" value="UPDATE" />
-                                            </div>
-                                        </div>
-                                </form>
+                            <div>
+                                <label><input type="radio" name="edit_is_fulltime" value="0" {{ !$job->is_fulltime ? 'checked' : '' }}> Part Time</label>
                             </div>
                         </div>
+                        <div>
+                            <button type="submit" id="update" class="btn btn-primary">UPDATE</button>
+                        </div>
                     </div>
+                </form>
+            </div>
         </div>
+    </div>
+</div>
 
         <button type="button" class="btn btn-danger" id="delete" data-toggle="modal" data-target="#deleteModal{{$job->id}}">
                                     Delete

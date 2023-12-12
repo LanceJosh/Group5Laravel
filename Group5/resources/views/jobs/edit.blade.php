@@ -13,37 +13,7 @@ body {
   font-family: 'DM Sans', sans-serif;
 }
 
-.sidebar {
-  margin: 0;
-  padding: 0;
-  width: 300px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
 
-.sidebar a {
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-}
- 
-.sidebar a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-.sidebar a:hover:not(.active) {
-  background-color: #4169E1;
-  color: white;
-}
-.sidebar img{
-    height: 200px;
-    width: 200px;
-    margin-left: 15%;
-}
 
 div.content {
   margin-left: 300px;
@@ -112,13 +82,7 @@ div.job-input{
 </head>
 
 <body>
-<div class="sidebar">
-    <img src="{{URL::asset('images/logo.png')}}">
-  <a href="{{ route('dashboard') }}">Dashboard</a>
-  <a href="{{ route('job.index') }}">Jobs Management</a>
-  <a href="{{ route('aboutus') }}">About Us</a>
-  <a href="{{ route('contact') }}">Contact</a>
-</div>
+
 
 <div class="content">
     <div class="box">
