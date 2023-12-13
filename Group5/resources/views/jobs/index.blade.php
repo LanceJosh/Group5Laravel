@@ -364,26 +364,26 @@ div.alljobs-header img {
                     <div class="job-container">
                         <div class="job-input">
                             <label for="edit_job_title">Job Title:</label><br>
-                            <input type="text" name="edit_job_title" class="w3-input" style="width: 450px;" value="{{ $job->job_title }}" />
+                            <input type="text" name="job_title" class="w3-input" style="width: 450px;" value="{{ $job->job_title }}" />
                         </div>
                         <br>
                         <div class="job-input">
                             <label for="edit_description">Description:</label><br>
-                            <input type="text" name="edit_description" class="w3-input" style="width: 450px;" value="{{ $job->description }}" />
+                            <input type="text" name="description" class="w3-input" style="width: 450px;" value="{{ $job->description }}" />
                         </div>
                         <br>
                         <div class="job-input">
                             <label for="edit_salary">Salary: $</label><br>
-                            <input type="number" name="edit_salary" class="w3-input" style="width: 450px;" value="{{ $job->salary }}" />
+                            <input type="number" name="salary" class="w3-input" style="width: 450px;" value="{{ $job->salary }}" />
                         </div>
                         <br>
                         <div class="job-input">
                             <label>Job Type:</label>
                             <div>
-                                <label><input type="radio" name="edit_is_fulltime" value="1" {{ $job->is_fulltime ? 'checked' : '' }}> Full Time</label>
+                                <label><input type="radio" name="is_fulltime" value="1" {{ $job->is_fulltime ? 'checked' : '' }}> Full Time</label>
                             </div>
                             <div>
-                                <label><input type="radio" name="edit_is_fulltime" value="0" {{ !$job->is_fulltime ? 'checked' : '' }}> Part Time</label>
+                                <label><input type="radio" name="is_fulltime" value="0" {{ !$job->is_fulltime ? 'checked' : '' }}> Part Time</label>
                             </div>
                         </div>
                         <div>
